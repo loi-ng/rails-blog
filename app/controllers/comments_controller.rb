@@ -6,8 +6,13 @@ class CommentsController < ApplicationController
     end
   
     private
+      def article_params
+        params.require(:article).permit(:title, :body, :status)
+      end
+
+    private
       def comment_params
-        params.require(:comment).permit(:commenter, :body)
+        params.require(:comment).permit(:commenter, :body, :status)
       end
 end
   
